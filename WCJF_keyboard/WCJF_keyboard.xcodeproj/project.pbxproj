@@ -13,12 +13,12 @@
 		170F98D21E1B2EF2002D080E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170F98D01E1B2EF2002D080E /* Main.storyboard */; };
 		170F98D41E1B2EF2002D080E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170F98D31E1B2EF2002D080E /* Assets.xcassets */; };
 		170F98D71E1B2EF2002D080E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170F98D51E1B2EF2002D080E /* LaunchScreen.storyboard */; };
-		170F98E81E1B366F002D080E /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F98E41E1B366F002D080E /* delete@2x.png */; };
-		170F98E91E1B366F002D080E /* delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F98E51E1B366F002D080E /* delete@3x.png */; };
-		170F98EA1E1B366F002D080E /* resign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F98E61E1B366F002D080E /* resign@2x.png */; };
-		170F98EB1E1B366F002D080E /* resign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F98E71E1B366F002D080E /* resign@3x.png */; };
 		170F98F11E1B3E95002D080E /* DF_Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 170F98EE1E1B3E95002D080E /* DF_Keyboard.m */; };
 		170F98F21E1B3E95002D080E /* UITextField+DF_Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 170F98F01E1B3E95002D080E /* UITextField+DF_Keyboard.m */; };
+		65AC2C0E1EC1D6340065279F /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65AC2C0A1EC1D6340065279F /* delete@2x.png */; };
+		65AC2C0F1EC1D6340065279F /* delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65AC2C0B1EC1D6340065279F /* delete@3x.png */; };
+		65AC2C101EC1D6340065279F /* resign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65AC2C0C1EC1D6340065279F /* resign@2x.png */; };
+		65AC2C111EC1D6340065279F /* resign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65AC2C0D1EC1D6340065279F /* resign@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +32,14 @@
 		170F98D31E1B2EF2002D080E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		170F98D61E1B2EF2002D080E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		170F98D81E1B2EF2002D080E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		170F98E41E1B366F002D080E /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
-		170F98E51E1B366F002D080E /* delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@3x.png"; sourceTree = "<group>"; };
-		170F98E61E1B366F002D080E /* resign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resign@2x.png"; sourceTree = "<group>"; };
-		170F98E71E1B366F002D080E /* resign@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resign@3x.png"; sourceTree = "<group>"; };
 		170F98ED1E1B3E95002D080E /* DF_Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DF_Keyboard.h; sourceTree = "<group>"; };
 		170F98EE1E1B3E95002D080E /* DF_Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DF_Keyboard.m; sourceTree = "<group>"; };
 		170F98EF1E1B3E95002D080E /* UITextField+DF_Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DF_Keyboard.h"; sourceTree = "<group>"; };
 		170F98F01E1B3E95002D080E /* UITextField+DF_Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DF_Keyboard.m"; sourceTree = "<group>"; };
+		65AC2C0A1EC1D6340065279F /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		65AC2C0B1EC1D6340065279F /* delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@3x.png"; sourceTree = "<group>"; };
+		65AC2C0C1EC1D6340065279F /* resign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resign@2x.png"; sourceTree = "<group>"; };
+		65AC2C0D1EC1D6340065279F /* resign@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resign@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				170F98EC1E1B3E95002D080E /* KeyBoard */,
-				170F98E41E1B366F002D080E /* delete@2x.png */,
-				170F98E51E1B366F002D080E /* delete@3x.png */,
-				170F98E61E1B366F002D080E /* resign@2x.png */,
-				170F98E71E1B366F002D080E /* resign@3x.png */,
 				170F98CA1E1B2EF2002D080E /* AppDelegate.h */,
 				170F98CB1E1B2EF2002D080E /* AppDelegate.m */,
 				170F98CD1E1B2EF2002D080E /* ViewController.h */,
@@ -101,6 +97,10 @@
 		170F98EC1E1B3E95002D080E /* KeyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				65AC2C0A1EC1D6340065279F /* delete@2x.png */,
+				65AC2C0B1EC1D6340065279F /* delete@3x.png */,
+				65AC2C0C1EC1D6340065279F /* resign@2x.png */,
+				65AC2C0D1EC1D6340065279F /* resign@3x.png */,
 				170F98ED1E1B3E95002D080E /* DF_Keyboard.h */,
 				170F98EE1E1B3E95002D080E /* DF_Keyboard.m */,
 				170F98EF1E1B3E95002D080E /* UITextField+DF_Keyboard.h */,
@@ -167,11 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170F98EA1E1B366F002D080E /* resign@2x.png in Resources */,
+				65AC2C101EC1D6340065279F /* resign@2x.png in Resources */,
 				170F98D71E1B2EF2002D080E /* LaunchScreen.storyboard in Resources */,
-				170F98E91E1B366F002D080E /* delete@3x.png in Resources */,
-				170F98E81E1B366F002D080E /* delete@2x.png in Resources */,
-				170F98EB1E1B366F002D080E /* resign@3x.png in Resources */,
+				65AC2C0F1EC1D6340065279F /* delete@3x.png in Resources */,
+				65AC2C0E1EC1D6340065279F /* delete@2x.png in Resources */,
+				65AC2C111EC1D6340065279F /* resign@3x.png in Resources */,
 				170F98D41E1B2EF2002D080E /* Assets.xcassets in Resources */,
 				170F98D21E1B2EF2002D080E /* Main.storyboard in Resources */,
 			);

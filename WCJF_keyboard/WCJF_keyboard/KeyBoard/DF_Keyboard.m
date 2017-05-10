@@ -14,6 +14,8 @@
 #define KScreenHeight   [UIScreen mainScreen].bounds.size.height
 #define keyBoardHeight 50.0 //数字键的高度
 #define maxLength  100000//限制最大长度
+#define maxTailLength  2//小数点后保留几位
+
 
 #define BackColor RGB(242, 242, 242)//蒙版颜色
 #define LayerColor RGB(207, 207, 207)//边框颜色
@@ -27,6 +29,7 @@
 @implementation DF_Keyboard {
 
     NSTimer *timer;
+    BOOL isDec;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -36,14 +39,14 @@
         // Initialization code
         self.backgroundColor = BackColor;
         self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, keyBoardHeight *4);
-        [self initCustomKeyborad];
     }
     return self;
 }
 
 
-- (void)initCustomKeyborad
+- (void)initCustomKeyboradType:(BOOL)isMoney
 {
+    isDec = isMoney;
     for (int x = 0; x < 12; x++)
     {
         UIButton *keyBoard_numBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -58,8 +61,14 @@
             tag = x+1;
             title = [NSString stringWithFormat:@"%ld",tag];
             if (x==9) {
-                //小数点
-                title = @".";
+                if (isDec == NO) {
+                    //身份证
+                    title = @"X";
+                } else {
+                    //小数点
+                    title = @".";
+                }
+
             }
         }else if (x == 11){
             //收起键盘
@@ -111,15 +120,23 @@
     {
         case 10:
         {
-            // 小数点
-            if(self.textFiled.text.length > 0 && [self.textFiled.text rangeOfString:@"." options:NSCaseInsensitiveSearch].location == NSNotFound && self.textFiled.text.length < maxLength) {
-                
-                if ([self.textFiled hasText]) {
-                    [self.textFiled insertText:@"."];
-                } else {
-                    self.textFiled.text = [NSString stringWithFormat:@"%@.",self.textFiled.text];
+            if (isDec) {
+                // 小数点
+                if(self.textFiled.text.length > 0 && [self.textFiled.text rangeOfString:@"." options:NSCaseInsensitiveSearch].location == NSNotFound && self.textFiled.text.length < maxLength) {
+                    
+                    if ([self.textFiled hasText]) {
+                        [self.textFiled insertText:@"."];
+                    } else {
+                        self.textFiled.text = [NSString stringWithFormat:@"%@.",self.textFiled.text];
+                    }
+                }
+            } else {
+                //身份证
+                if(self.textFiled.text.length > 0 && [self.textFiled.text rangeOfString:@"X" options:NSCaseInsensitiveSearch].location == NSNotFound && self.textFiled.text.length < 19) {
+                    self.textFiled.text = [NSString stringWithFormat:@"%@X",self.textFiled.text];
                 }
             }
+            
             
         }
             break;
@@ -145,25 +162,51 @@
             break;
         default:
         {
-            // 数字
-            if ([self.textFiled hasText]) {
-                [self.textFiled insertText:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-            } else {
-                self.textFiled.text = [NSString stringWithFormat:@"%@%ld",self.textFiled.text,sender.tag];
-            }
             
-            if (self.textFiled.text.length >= 2) {
-                NSString *str = [self.textFiled.text substringToIndex:2];
-                if ([[str substringToIndex:1] isEqualToString:@"0"] && ![[str substringFromIndex:1] isEqualToString:@"."]) {
-                    self.textFiled.text = [self.textFiled.text substringFromIndex:1];
+            if (isDec) {
+                // 数字
+                if ([self.textFiled hasText]) {
+                    [self.textFiled insertText:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+                } else {
+                    self.textFiled.text = [NSString stringWithFormat:@"%@%ld",self.textFiled.text,sender.tag];
+                    
+                }
+                
+                if ([self.textFiled.text rangeOfString:@"."].location != NSNotFound) {
+                    NSRange range = [self.textFiled.text rangeOfString:@"."];
+                    NSString *tailStr = [self.textFiled.text substringFromIndex:range.location+1];
+                    if (tailStr.length > maxTailLength) {
+                        self.textFiled.text = [self.textFiled.text stringByReplacingOccurrencesOfString:tailStr withString:[tailStr substringToIndex:2]];
+                    }
+                }
+
+                
+                //小数点
+                if (self.textFiled.text.length >= 2) {
+                    NSString *str = [self.textFiled.text substringToIndex:2];
+                    if ([[str substringToIndex:1] isEqualToString:@"0"] && ![[str substringFromIndex:1] isEqualToString:@"."]) {
+                        self.textFiled.text = [self.textFiled.text substringFromIndex:1];
+                    }
+                }
+                
+                if (self.textFiled.text.length > maxLength) {
+                    self.textFiled.text = [self.textFiled.text substringToIndex:maxLength];
+                }
+
+            } else {
+                // 数字
+                if ([self.textFiled hasText]) {
+                    [self.textFiled insertText:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+                } else {
+                    self.textFiled.text = [NSString stringWithFormat:@"%@%ld",self.textFiled.text,sender.tag];
+                }
+                
+                //身份证
+                if (self.textFiled.text.length > 18) {
+                    self.textFiled.text = [self.textFiled.text substringToIndex:18];
                 }
             }
-            
-            if (self.textFiled.text.length > maxLength) {
-                self.textFiled.text = [self.textFiled.text substringToIndex:maxLength];
-            }
-            
-            
+
         }
             break;
     }
@@ -189,6 +232,23 @@
     [self.textFiled deleteBackward];
     
 }
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789X"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
 
 - (UIImage *)createImageWithColor:(UIColor *)color
 {

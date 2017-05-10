@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, KeyBoardStyle) {
     TextFiledKeyBoardStyleMoney,
     TextFiledKeyBoardStyleNumber,
+    TextFiledKeyBoardStyleCer,
 };
 
 @interface UITextField (DF_Keyboard)

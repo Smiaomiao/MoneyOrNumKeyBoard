@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DF_Keyboard : UIView
+@interface DF_Keyboard : UIView<UIResponderStandardEditActions>
 
 @property (nonatomic, strong) UITextField *textFiled;
 
+- (void)initCustomKeyboradType:(BOOL)isMoney;
 @end

@@ -16,10 +16,16 @@
     if(KeyBoardStyle == TextFiledKeyBoardStyleMoney)
     {
         DF_Keyboard *zpNumberKb = [[DF_Keyboard alloc] init];
+        [zpNumberKb initCustomKeyboradType:YES];
         zpNumberKb.textFiled = self;
         self.inputView = zpNumberKb;
     }else if(KeyBoardStyle == TextFiledKeyBoardStyleNumber){
         self.keyboardType = UIKeyboardTypeNumberPad;
+    }else if (KeyBoardStyle == TextFiledKeyBoardStyleCer) {
+        DF_Keyboard *zpNumberKb = [[DF_Keyboard alloc] init];
+        [zpNumberKb initCustomKeyboradType:NO];
+        zpNumberKb.textFiled = self;
+        self.inputView = zpNumberKb;
     }
 }
 
